@@ -1,5 +1,53 @@
 {
-  "name"    : "developers-stop-watch",
-  "version" : "0.1.0",
-  "main"    : "main.js"
+  "name": "developers-stop-watch",
+  "version": "0.1.0",
+  "main": "app/main.js",
+  "license": "MIT",
+  "dependencies": {
+    "electron-compile": "^6.4.2",
+    "font-awesome": "^4.7.0",
+    "moment": "^2.18.1",
+    "vue": "^2.4.4"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "electron-forge": "^4.0.2",
+    "electron-prebuilt-compile": "1.7.6"
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "zip"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {},
+      "electronWinstallerConfig": {
+        "name": ""
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": ""
+      }
+    }
+  }
 }

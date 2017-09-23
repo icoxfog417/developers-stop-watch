@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/moment/min/moment.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/stop-watch.scss">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Developer's Stop Watch</title>
+  </head>
+  <body>
+      <div id="stopWatch">
+        <div class="container">  
+          <div class="board">
+            <digit-template :digit="elapse[0]"></digit-template>
+            <digit-template :digit="elapse[1]"></digit-template>
+            <span class="separator">:</span>
+            <digit-template :digit="elapse[2]"></digit-template>
+            <digit-template :digit="elapse[3]"></digit-template>
+            <span class="separator">:</span>
+            <digit-template :digit="elapse[4]"></digit-template>
+            <digit-template :digit="elapse[5]"></digit-template>
+            <span class="separator">&nbsp;</span>
+            <digit-template :digit="elapse[6]"></digit-template>
+            <digit-template :digit="elapse[7]"></digit-template>
+          </div>
+        </div>
+        <div class="button-panel">
+          <button v-on:click="start()" class="button start" v-show="!starting"><i class="fa fa-play"></i></button>
+          <button v-on:click="stop()" class="button stop" v-show="starting"><i class="fa fa-stop"></i></button>
+          <span>&nbsp;</span>
+          <button v-on:click="reset()" class="button reset"><i class="fa fa-eject"></i></button>          
+        </div>
+    </div>
+  </body>
+  <script type="text/x-template" id="digit-template">
+    <div v-bind:class="['counter', 'counter--digital', digitClass]">
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+        <span class="counter__bit"></span>
+    </div>
+  </script>
+  <script type="text/javascript" src="js/index.js"></script>  
+</html>
