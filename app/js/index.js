@@ -31,7 +31,12 @@ var app = new Vue({
     },
     methods: {
         start: function(){
-            this.startTime = moment();
+            if(this.startTime == 0){
+                this.startTime = moment();
+            }else{
+                var elapse = moment.duration(this.now_.diff(this.startTime));
+                this.startTime = moment().subtract(elapse);
+            }
             var self = this;
             this.timer = setInterval(function(){
                 self.now_ = moment();
