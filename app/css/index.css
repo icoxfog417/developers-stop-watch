@@ -1,8 +1,52 @@
 .button-panel{
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Hiragino Kaku Gothic ProN,"メイリオ",meiryo,sans-serif;
     background: #343434;
     text-align: right;
     padding: 5px 20px 5px 5px;
     border-top: 1px solid dimgray;
+}
+
+#tag-area{
+    float:left;
+    text-align:left
+}
+
+.tag{
+    width: 140px;
+    height: 17px;
+    border-radius: 8px;    
+    background-color: white;
+    text-align: left;
+    padding: 2px 5px 2px 5px;
+}
+
+select.tag{
+    width: 200px;
+}
+
+select.tag{
+    height: 26px;
+}
+
+.action-button{
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid silver;
+}
+
+.action-button.add{
+    background-color: mediumseagreen;
+    color: white;
+}
+
+.action-button.delete{
+    background-color: coral;
+    color: white;    
+}
+
+.time-desc{
+    padding: 2px;
+    color: white;
 }
 
 .button {

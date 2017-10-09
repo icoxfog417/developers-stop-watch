@@ -10,28 +10,48 @@
     <title>Developer's Stop Watch</title>
   </head>
   <body>
-      <div id="stopWatch">
-        <div class="container">  
-          <div class="board">
-            <digit-template :digit="elapse[0]"></digit-template>
-            <digit-template :digit="elapse[1]"></digit-template>
-            <span class="separator">:</span>
-            <digit-template :digit="elapse[2]"></digit-template>
-            <digit-template :digit="elapse[3]"></digit-template>
-            <span class="separator">:</span>
-            <digit-template :digit="elapse[4]"></digit-template>
-            <digit-template :digit="elapse[5]"></digit-template>
-            <span class="separator">&nbsp;</span>
-            <digit-template :digit="elapse[6]"></digit-template>
-            <digit-template :digit="elapse[7]"></digit-template>
+    <div id="stopWatch">
+      <div class="container">  
+        <div class="board">
+          <digit-template :digit="elapse[0]"></digit-template>
+          <digit-template :digit="elapse[1]"></digit-template>
+          <span class="separator">:</span>
+          <digit-template :digit="elapse[2]"></digit-template>
+          <digit-template :digit="elapse[3]"></digit-template>
+          <span class="separator">:</span>
+          <digit-template :digit="elapse[4]"></digit-template>
+          <digit-template :digit="elapse[5]"></digit-template>
+          <span class="separator">&nbsp;</span>
+          <digit-template :digit="elapse[6]"></digit-template>
+          <digit-template :digit="elapse[7]"></digit-template>
+        </div>
+      </div>
+      <div class="button-panel">
+        <div id="tag-area">
+          <select class="tag" v-model="selected" @change="setForm()">
+            <option :value="tag.id" v-for="tag in tags" :key="tag.id"> {{ tag.name }} &nbsp; ({{ formatSeconds(tag) }})</option>
+          </select>
+          <input class="edit tag" type="text"
+                v-model="newName"
+                @keyup.enter="doneEdit()"
+                @keyup.esc="cancelEdit()">
+          <button class="action-button add" @click="addNewTag()"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+          <button class="action-button delete" @click="removeTag()"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+          <br/>
+          <div>
+            <span class="time-desc"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; {{ selectedTagTime }}</span>
+            &nbsp;&nbsp;&nbsp;
+            <button class="action-button clear" @click="clearSeconds()"><i class="fa fa-repeat" aria-hidden="true"></i></button>
           </div>
         </div>
-        <div class="button-panel">
+        <div>
           <button v-on:click="start()" class="button start" v-show="!starting"><i class="fa fa-play"></i></button>
           <button v-on:click="stop()" class="button stop" v-show="starting"><i class="fa fa-stop"></i></button>
           <span>&nbsp;</span>
-          <button v-on:click="reset()" class="button reset"><i class="fa fa-eject"></i></button>          
+          <button v-on:click="reset()" class="button reset"><i class="fa fa-eject"></i></button>
         </div>
+        <span style="clear:both"/>
+      </div>
     </div>
   </body>
   <script type="text/x-template" id="digit-template">

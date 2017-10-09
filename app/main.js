@@ -5,7 +5,7 @@ const url = require("url")
 let win
 
 function createWindow () {
-  win = new BrowserWindow({width: 600, height: 300})
+  win = new BrowserWindow({width: 615, height: 300})
   //win.setMenu(null);
 
   var electronVersion = process.versions.electron;
